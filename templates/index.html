@@ -4,22 +4,22 @@
     <meta name="theme-color" content="#2196F3" />
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<title>ENGR 1624 Semester Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>ENGR 1624 Semester Project</title>
 </head>
 <body>
     <form id="control" action="/" method="post">
-        <h1>Pump Control</h1>
-        <div id="switches">
-				<label class="switchLabel">OFF</label>
-				<label class="switch">
-					<input id="checkbox" type="checkbox" name="pump" value="1" {{ state }}/>
-					<span class="slider round"></span>
-				</label>
-				<label class="switchLabel">ON</label>
-				<input id="checkboxHidden" type="hidden" name="pumpOff" value="0"/>
-				</div>
-        <button id="submit" type="submit">Submit</button>
+    	<h1>Pump Control</h1>
+    	<div id="switches">
+        	<label class="switchLabel">OFF</label>
+        	<label class="switch">
+            	<input id="checkbox" type="checkbox" name="pump" value="1" {{ state }}/>
+            	<span class="slider round"></span>
+        	</label>
+        	<label class="switchLabel">ON</label>
+        	<input id="checkboxHidden" type="hidden" name="pumpOff" value="0"/>
+        </div>
+    	<button id="submit" type="submit">Submit</button>
     </form>
 </body>
 </html>
