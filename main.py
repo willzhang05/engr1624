@@ -21,7 +21,7 @@ def index():
             pump.off()
         print(pump.value)
 
-    return render_template("index.html", state="checked=checked" if turn_on else "")
+    return render_template("index.html", state="checked=checked" if pump.value else "")
 
 
 if __name__ == "__main__":  
