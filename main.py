@@ -2,8 +2,11 @@
 from flask import Flask, render_template, request
 from gpiozero import Device,Pin,OutputDevice
 
+PIN = 21
+
 app = Flask(__name__, static_url_path='/static')
-pump = OutputDevice(21)
+pump = OutputDevice(PIN)
+
 
 @app.route('/', methods=["GET","POST"])
 def index():
@@ -20,5 +23,7 @@ def index():
 
     return render_template("index.html", state="checked=checked" if turn_on else "")
 
+
 if __name__ == "__main__":  
-    app.run(host="0.0.0.0",debug=True)
+    #app.run(host="0.0.0.0",debug=True)
+	app.run()
