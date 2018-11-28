@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from flask import Flask
+from flask import Flask, render_template, request
 from gpiozero import Device,Pin,OutputDevice
 
 app = Flask(__name__)
@@ -7,8 +7,12 @@ pump = OutputDevice(21)
 
 @app.route("/")
 def index():
-    return "Hi"
+    print(request.args.get('pump'))
+    return render_template('index.html')
 
-@app.route("/pump")
+'''
+@app.route("/pump", methods=['GET'])
 def pump():
-    return pump.value
+    print(request.get_json())
+    return render_template('index.html')
+'''
