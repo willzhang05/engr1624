@@ -2,17 +2,23 @@
 from flask import Flask, render_template, request
 from gpiozero import Device,Pin,OutputDevice
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 pump = OutputDevice(21)
 
-@app.route("/", methods=['GET','POST'])
+@app.route('/', methods=["GET","POST"])
 def index():
-    print(request.form)
-    return render_template('index.html')
+    turn_on = False
+    if request.method == "POST":
+        if "pump" in request.form:
+            print("Turn pump on")
+            turn_on = True
+            pump.on()
+        else:
+            print("Turn pump off")
+            pump.off()
+        print(pump.value)
 
-'''
-@app.route("/pump", methods=['GET'])
-def pump():
-    print(request.get_json())
-    return render_template('index.html')
-'''
+    return render_template("index.html", state="checked=checked" if turn_on else "")
+
+if __name__ == "__main__":  
+    app.run(host="0.0.0.0",debug=True)
