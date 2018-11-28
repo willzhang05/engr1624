@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<link href="static/css/main.css" rel="stylesheet" />
 </head>
 <body>
-	<form action="/" method="get" id="pump">
+	<form action="/" method="post">
 		<label class="bs-switch">
-			<input id="checkbox" type="checkbox" name="pump" value="on" checked="checked">
+			<input id="checkbox" type="checkbox" name="pump" value="1"/>
 			<span class="slider round"></span>
 		</label>
 		<label class="bs-switch">
-			<input id="checkboxHidden" type="checkbox" name="pump" value="off">
+			<input id="checkboxHidden" type="hidden" name="pumpOff" value="0"/>
 			<span class="slider round"></span>
 		</label>
 		<button type="submit">Submit</button>

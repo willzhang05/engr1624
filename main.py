@@ -5,9 +5,9 @@ from gpiozero import Device,Pin,OutputDevice
 app = Flask(__name__)
 pump = OutputDevice(21)
 
-@app.route("/")
+@app.route("/", methods=['GET','POST'])
 def index():
-    print(request.args.get('pump'))
+    print(request.form)
     return render_template('index.html')
 
 '''
